@@ -1,0 +1,41 @@
+%% $Id: entrezDownload.Rd 141 2013-07-23 12:04:14Z larssn $
+
+\name{entrezDownload}
+\alias{entrezDownload}
+\title{
+  Downloading genome data
+}
+\description{
+  Retrieving genomes from NCBI using the Entrez programming utilities.
+}
+\usage{
+  entrezDownload(accession,out.file,verbose=TRUE)
+}
+\arguments{
+  \item{accession}{A character vector containing a set of valid accession numbers at the NCBI Nucleotide database.}
+  \item{out.file}{Name of the file where downloaded sequences should be written in FASTA format.}
+  \item{verbose}{Logical indicating if textual output should be given during execution, to monitor the download progress.}
+}
+\details{
+  The Entrez programming utilities is a toolset for automatic download of data from the NCBI databases, see 
+\href{http://www.ncbi.nlm.nih.gov/books/NBK25500/}{E-utilities Quick Start} for details. \code{\link{entrezDownload}} can be used to download genomes from the NCBI Nucleotide database through these utilities.
+
+  The argument \samp{accession} must be a set of valid accession numbers at NCBI Nucleotide, typically all accession numbers related to a genome (chromosomes, plasmids, contigs, etc). For completed genomes, where the number of sequences is low, \samp{accession} is typically a single text listing all accession numbers separated by commas. In the case of some draft genomes having a large number of contigs, the accession numbers must be split into several comma-separated texts. The reason for this is that Entrez will not accept too many queries in one chunk (less than 500). 
+
+  The downloaded sequences are saved in \samp{file} on your system. This will be a FASTA formatted file, and should by convention have the filename extension \samp{.fsa}. Note that all downloaded sequences end up in this file. If you want to download multiple genomes, you call \code{\link{entrezDownload}} multiple times.
+}
+\value{
+  The name of the resulting FASTA file is returned (same as \code{file}), but the real result of this function is the creation of the file itself.
+}
+\author{
+  Lars Snipen and Kristian Liland.
+}
+
+\seealso{
+  \code{\link{getAccessions}}, \code{\link{readFasta}}.
+}
+\examples{
+# Accession numbers for the chromosome and plasmid of Buchnera aphidicola, strain APS
+entrezDownload( accession="BA000003.2,AP001071.1", out.file="Buchnera_aphidicola_APS.fsa" )
+}
+\keyword{download}

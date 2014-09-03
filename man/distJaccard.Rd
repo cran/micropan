@@ -1,0 +1,45 @@
+%% $Id: distJaccard.Rd 160 2014-07-08 09:04:30Z larssn $
+
+\name{distJaccard}
+\alias{distJaccard}
+
+\title{
+  Computing Jaccard distances between genomes
+}
+\description{
+  Computes the Jaccard distances between all pairs of genomes.
+}
+\usage{
+distJaccard(pan.matrix)
+}
+\arguments{
+  \item{pan.matrix}{A \code{Panmat} object, see \code{\link{panMatrix}} for details.}
+}
+\details{
+  The Jaccard index between two sets is defined as the size of the interesection of the sets divided by the size of the union. The Jaccard distance is simply 1 minus the Jaccard index.
+  
+  The Jaccard distance between two genomes describes their degree of overlap with respect to gene cluster content. If the Jaccard distance is 0.0, the two genomes contain identical gene clusters. If it is 1.0 the two genomes are non-overlapping. The difference between a genomic fluidity (see \code{\link{fluidity}}) and a Jaccard distance is small, they both measure overlap between genomes, but fluidity is computed for the population by averaging over many pairs, while Jaccard distances are computed for every pair. Note that only presence/absence of gene clusters are considered, not multiple occurrences.
+  
+  The input \samp{pan.matrix} is typically constructed by \code{\link{panMatrix}}.
+}
+\value{
+  A \code{dist} object (see \code{\link{dist}}) containing all pairwise Jaccard distances between genomes.
+}
+
+\author{
+  Lars Snipen and Kristian Hovde Liland.
+}
+
+\seealso{
+  \code{\link{panMatrix}}, \code{\link{fluidity}}, \code{\link{dist}}.
+}
+\examples{
+# Loading two Panmat objects in the micropan package
+data(list=c("Mpneumoniae.blast.panmat","Mpneumoniae.domain.panmat"),package="micropan")
+
+# Jaccard distances based on a BLAST clustering Panmat object
+Jdist.blast <- distJaccard(Mpneumoniae.blast.panmat)
+
+# Jaccard distances based on domain sequence clustering Panmat object
+Jdist.domains <- distJaccard(Mpneumoniae.domain.panmat)
+}

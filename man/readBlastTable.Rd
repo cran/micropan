@@ -1,0 +1,42 @@
+%% $Id: readBlastTable.Rd 189 2014-09-06 08:22:07Z larssn $
+
+\name{readBlastTable}
+\alias{readBlastTable}
+
+\title{
+  Reading BLAST result file
+}
+\description{
+  Reading a file produced by the BLAST+ software set up to produce tabular output.
+}
+\usage{
+readBlastTable(blast.file)
+}
+\arguments{
+  \item{blast.file}{Name of file to read.}
+}
+\details{
+  This function will read files produced by the BLAST+ software where the option \samp{-outfmt 6} has been invoked during its call. This option forces BLAST to produce a short tabular text output for each BLAST search. The function \code{\link{blastAllAll}} produces such files.
+}
+\value{
+ The content of the file is returned as a \samp{data.frame} with 12 columns and one row for each BLAST result. The columns have self-explanatory names.  
+}
+\author{
+  Lars Snipen and Kristian Hovde Liland.
+}
+\seealso{
+  \code{\link{blastAllAll}}, \code{\link{bDist}}.
+}
+\examples{
+# Using a BLAST result file in this package
+# We need to uncompress it first...
+extdata.path <- file.path(path.package("micropan"),"extdata")
+filenames <- "GID1_vs_GID2.txt"
+pth <- lapply( file.path( extdata.path, paste( filenames, ".xz", sep="" ) ), xzuncompress )
+
+#...then we can read it...
+blast.table <- readBlastTable(file.path(extdata.path,filenames))
+
+# ...and compressing it again...
+pth <- lapply( file.path( extdata.path, filenames ), xzcompress )
+}
