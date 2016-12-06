@@ -1,4 +1,36 @@
-## Compress and replace file on computer
+#' @rdname xz
+#' @name xzcompress
+#' @title Compressing and uncompressing text files
+#' 
+#' @description These functions are adapted from the \code{R.utils} package from gzip to xz. Internally
+#' \code{xzfile()} (see connections) is used to read (write) chunks to (from) the xz file. If the
+#' process is interrupted before completed, the partially written output file is automatically removed.
+#' 
+#' @param filename Path name of input file.
+#' @param destname Pathname of output file.
+#' @param temporary If TRUE, the output file is created in a temporary directory.
+#' @param skip If TRUE and the output file already exists, the output file is returned as is.
+#' @param overwrite If TRUE and the output file already exists, the file is silently overwritting,
+#' otherwise an exception is thrown (unless skip is TRUE).
+#' @param remove If TRUE, the input file is removed afterward, otherwise not.
+#' @param BFR.SIZE The number of bytes read in each chunk.
+#' @param compression The compression level used (1-9).
+#' @param ... Not used.
+#' 
+#' @return Returns the pathname of the output file. The number of bytes processed is returned as an attribute. 
+#' 
+#' @author Kristian Hovde Liland.
+#' 
+#' @examples
+#' cat(file="foo.txt", "Hello world!")
+#' xzcompress("foo.txt")
+#' file.remove("foo.txt")
+#' print(file.info("foo.txt.xz"))
+#' xzuncompress("foo.txt.xz")
+#' print(file.info("foo.txt"))
+#' file.remove("foo.txt")
+#' 
+#' @export
 xzcompress <- function (filename, destname = sprintf("%s.xz", filename), temporary = FALSE, 
           skip = FALSE, overwrite = FALSE, remove = TRUE, BFR.SIZE = 1e+07, compression = 6,
           ...) 
@@ -53,8 +85,8 @@ xzcompress <- function (filename, destname = sprintf("%s.xz", filename), tempora
   attr(destname, "nbrOfBytes") <- nbytes
   invisible(destname)
 }
-
-## Uncompress and replace file on computer
+#' @rdname xz
+#' @export xzuncompress
 xzuncompress <- function (filename, destname = gsub("[.]xz$", "", filename, ignore.case = TRUE), 
           temporary = FALSE, skip = FALSE, overwrite = FALSE, remove = TRUE, 
           BFR.SIZE = 1e+07, ...) 
