@@ -42,7 +42,7 @@ A vector listing FASTA files of protein sequences is given as input in \samp{in.
 must have the GID-tag in the first token of every header, and in their filenames as well, i.e. all input
 files should first be prepared by \code{\link{panPrep}} to ensure this. Note that only protein sequences
 are considered here. If your coding genes are stored as DNA, please translate them to protein prior to
-using this function, see \code{\link{translate}}.
+using this function, see \code{\link[microseq]{translate}}.
 
 A BLAST database is made from each genome in turn. Then all genomes are queried against this database,
 and for every pair of genomes a result file is produced. If two genomes have GID-tags \samp{GID111},

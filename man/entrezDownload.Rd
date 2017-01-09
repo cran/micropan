@@ -24,7 +24,7 @@ Retrieving genomes from NCBI using the Entrez programming utilities.
 }
 \details{
 The Entrez programming utilities is a toolset for automatic download of data from the
-NCBI databases, see \href{http://www.ncbi.nlm.nih.gov/books/NBK25500/}{E-utilities Quick Start}
+NCBI databases, see \href{https://www.ncbi.nlm.nih.gov/books/NBK25500/}{E-utilities Quick Start}
 for details. \code{\link{entrezDownload}} can be used to download genomes from the NCBI Nucleotide
 database through these utilities.
 
@@ -49,6 +49,6 @@ entrezDownload( accession="BA000003.2,AP001071.1", out.file="Buchnera_aphidicola
 Lars Snipen and Kristian Liland.
 }
 \seealso{
-\code{\link{getAccessions}}, \code{\link{readFasta}}.
+\code{\link{getAccessions}}, \code{\link[microseq]{readFasta}}.
 }
 

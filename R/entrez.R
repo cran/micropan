@@ -10,7 +10,7 @@
 #' the download progress.
 #' 
 #' @details The Entrez programming utilities is a toolset for automatic download of data from the
-#' NCBI databases, see \href{http://www.ncbi.nlm.nih.gov/books/NBK25500/}{E-utilities Quick Start}
+#' NCBI databases, see \href{https://www.ncbi.nlm.nih.gov/books/NBK25500/}{E-utilities Quick Start}
 #' for details. \code{\link{entrezDownload}} can be used to download genomes from the NCBI Nucleotide
 #' database through these utilities.
 #' 
@@ -31,7 +31,7 @@
 #' 
 #' @author Lars Snipen and Kristian Liland.
 #' 
-#' @seealso \code{\link{getAccessions}}, \code{\link{readFasta}}.
+#' @seealso \code{\link{getAccessions}}, \code{\link[microseq]{readFasta}}.
 #' 
 #' @examples 
 #' # Accession numbers for the chromosome and plasmid of Buchnera aphidicola, strain APS
@@ -42,7 +42,7 @@ entrezDownload <- function( accession, out.file, verbose=TRUE ){
   if( verbose ) cat( "Downloading genome..." )
   connect <- file( out.file, open="w" )
   for( j in 1:length( accession ) ){
-    adr <- paste( "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=", accession[j], "&retmode=text&rettype=fasta", sep="" )
+    adr <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=", accession[j], "&retmode=text&rettype=fasta", sep="" )
     entrez <- url( adr, open="rt" )
     if( isOpen( entrez ) ){
       lines <- readLines( entrez )
@@ -90,7 +90,7 @@ entrezDownload <- function( accession, out.file, verbose=TRUE ){
 #' 
 #' @export
 getAccessions <- function( master.record.accession ){
-  adr <- paste( "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=", master.record.accession, "&retmode=text&rettype=gb", sep="" )
+  adr <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=", master.record.accession, "&retmode=text&rettype=gb", sep="" )
   entrez <- url( adr, open="rt" )
   accessions <- ""
   if( isOpen( entrez ) ){

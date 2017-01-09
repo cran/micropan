@@ -19,7 +19,7 @@
 #' pan-genomic analyses.
 #' 
 #' @return The call to Prodigal produces a FASTA formatted file with predicted protein sequences, and
-#' if \samp{nuc.file} is specified, a similar file with nucleotide sequences. See \code{\link{readFasta}}
+#' if \samp{nuc.file} is specified, a similar file with nucleotide sequences. See \code{\link[microseq]{readFasta}}
 #' for how to read such files into R.
 #' 
 #' @references Hyatt, D., Chen, G., LoCascio, P.F., Land, M.L., Larimer, F.W., Hauser, L.J. (2009).

@@ -1,11 +1,11 @@
-b021c7c2b2a30c1386658d213b4bfd69 *DESCRIPTION
+9e4fb85df29e66b7320fd42f3e0c16c1 *DESCRIPTION
 67089a29017fca05fd9f91161b49bbce *NAMESPACE
 2e58be0694c837c539fc62dee452a912 *R/bclust.R
 f2d17afd6d3d7cc5e820824a38930f6b *R/bdist.R
 463607095906115d9e3034f0df7a6d88 *R/binomix.R
-9ce89cde950962a6088badf5d838da89 *R/blasting.R
+488ee0b6bcd30c8e1c9ca13ec71adac4 *R/blasting.R
 ace00c88d4f461bd4d672d1054c16e75 *R/domainclust.R
-643f4b4fe0c220bd6ed3732753f55bc0 *R/entrez.R
+60d1f2c85a4edc0c8171c03dde491968 *R/entrez.R
 f089111b90c1f0001d3201bc7ed68de1 *R/genomedistances.R
 c07677e4adeff51d1b8817020ff8e869 *R/hmmer3.R
 f750a5b0f9627ad41bb952d204b0f8c1 *R/mpneumoniae.R
@@ -13,7 +13,7 @@ d5230a403fa30ea074fd450a345648f0 *R/panmat.R
 f39007765732e0ca38cae9985a11ec93 *R/panpca.R
 e3bd9b00dda8b7acee1c6b0cfaacd9ac *R/panprep.R
 d6b4a97332cf608fc85f0ab26ff818e4 *R/powerlaw.R
-fbdfac13ae4a8f8dc2187968d0dbabd9 *R/prodigal.R
+e7e5193098846d665930af80389d09ad *R/prodigal.R
 324236314cd10842f855ad81c7a07574 *R/rarefaction.R
 71f2e8bcf6b861f7f38670da50b67758 *R/trees.R
 1273fb4ff19955e9719fcf353a75255e *R/xz.R
@@ -55,12 +55,12 @@ a5e30f1cf0be0e6e345c6b2c5d8018ba *inst/extdata/microfam0.hmm.h3m.xz
 7b33a9cef6772a8abf1f005065217712 *man/bClust.Rd
 42cfbb74bfa65c9dad1c0e1d96b15b46 *man/bDist.Rd
 50d9cc5efa2f3b2cd903809db6f1dadc *man/binomixEstimate.Rd
-27c48c4968090b24e310f630bb99f530 *man/blastAllAll.Rd
+a9efc014245c230acb7e578788d0aa6e *man/blastAllAll.Rd
 22c0ca06159cf36455e297472f090942 *man/chao.Rd
 5d64553d5e74da8e5aee8deba31e57f9 *man/dClust.Rd
 372a2b87524939a2cbf09136730710b7 *man/distJaccard.Rd
 a5a3774337a58af6538b023558c8a555 *man/distManhattan.Rd
-568d9e65f185cb823ca774c6e671bef1 *man/entrezDownload.Rd
+5d347b553bb2bc9f51b736bb2151e53d *man/entrezDownload.Rd
 e3b43ed49705355d360b10a2d5b684c0 *man/fluidity.Rd
 335d2a205c84e081a174faba54c25b93 *man/geneWeights.Rd
 a02528c324d3215868eda5e440de17bf *man/generic.Binomix.Rd
@@ -78,7 +78,7 @@ e2bf82c691067b4e30022365566a9464 *man/mpneumoniae.Rd
 df7791df84989e253672a2baab1d2a17 *man/panPrep.Rd
 2c6fa2238a0591e34b701b1c91e8aea4 *man/panTree.Rd
 ccc9ff3da9e25fda43e78497140ecb68 *man/panpca.Rd
-db3a67d4c574bf63d501c8e646f774f6 *man/prodigalPredict.Rd
+407646374d00154ae495efad1030baf3 *man/prodigalPredict.Rd
 770e4a06af1a15133cdadae3f2e904d9 *man/rarefaction.Rd
 409926cba4d6ec655f2c88440ca84f55 *man/readBlastTable.Rd
 40350bdc296ba7f2d2b377dd004d6c16 *man/readHmmer.Rd
