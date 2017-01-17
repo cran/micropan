@@ -90,7 +90,18 @@ entrezDownload <- function( accession, out.file, verbose=TRUE ){
 #' 
 #' @export
 getAccessions <- function( master.record.accession ){
-  adr <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=", master.record.accession, "&retmode=text&rettype=gb", sep="" )
+  adrId    <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nuccore&term=", master.record.accession, sep="" )
+  idSearch <- url( adrId, open="rt" )
+  if( isOpen( idSearch )){
+    idDoc  <- readLines( idSearch )
+    idLine <- which(regexpr("<Id>+",idDoc)==1)[1]
+    id     <- substr(idDoc[idLine], 5, nchar(idDoc[idLine])-5)
+  } else {
+    cat( "Download failed: Could not open connection\n" )
+    return(NULL)
+  }
+
+  adr <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=", id, "&retmode=text&rettype=gb", sep="" )
   entrez <- url( adr, open="rt" )
   accessions <- ""
   if( isOpen( entrez ) ){

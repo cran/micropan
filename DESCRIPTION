@@ -1,8 +1,8 @@
 Package: micropan
 Type: Package
 Title: Microbial Pan-Genome Analysis
-Version: 1.1.1
-Date: 2017-01-09
+Version: 1.1.2
+Date: 2017-01-17
 Author: Lars Snipen and Kristian Hovde Liland
 Maintainer: Lars Snipen <lars.snipen@nmbu.no>
 Description: A collection of functions for computations and visualizations of
@@ -13,6 +13,6 @@ LazyData: FALSE
 ZipData: TRUE
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2017-01-09 09:55:25 UTC; larssn
+Packaged: 2017-01-17 13:08:57 UTC; larssn
 Repository: CRAN
-Date/Publication: 2017-01-09 15:17:07
+Date/Publication: 2017-01-17 19:41:22

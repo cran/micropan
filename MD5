@@ -1,11 +1,11 @@
-9e4fb85df29e66b7320fd42f3e0c16c1 *DESCRIPTION
+64cc6e4b7ff6aed8ba081344c2e70d94 *DESCRIPTION
 67089a29017fca05fd9f91161b49bbce *NAMESPACE
 2e58be0694c837c539fc62dee452a912 *R/bclust.R
 f2d17afd6d3d7cc5e820824a38930f6b *R/bdist.R
 463607095906115d9e3034f0df7a6d88 *R/binomix.R
 488ee0b6bcd30c8e1c9ca13ec71adac4 *R/blasting.R
 ace00c88d4f461bd4d672d1054c16e75 *R/domainclust.R
-60d1f2c85a4edc0c8171c03dde491968 *R/entrez.R
+bb1449432f802ae5afd2219e4275a640 *R/entrez.R
 f089111b90c1f0001d3201bc7ed68de1 *R/genomedistances.R
 c07677e4adeff51d1b8817020ff8e869 *R/hmmer3.R
 f750a5b0f9627ad41bb952d204b0f8c1 *R/mpneumoniae.R
@@ -29,7 +29,7 @@ e5b675227d38ee65e06b93f02c4edb58 *demo/casestudy.R
 0a5580398f0c9c934aa49b2cc4a07e8a *inst/doc/casestudy.pdf
 86628b8529d7d33b4416812753050e2d *inst/doc/vignette.R
 d7a0da32f316e05c0c5b3ad0e082c26e *inst/doc/vignette.Rnw
-41a7f85c5de56801eefe896229bc5752 *inst/doc/vignette.pdf
+d99556e5042a6a33eb40353e2deffc7b *inst/doc/vignette.pdf
 c2e2aa54e893702b7fee7eaa3aea3b40 *inst/extdata/GID1_vs_GID1.txt.xz
 b94b12afad2b52d72c957dda7fc97ace *inst/extdata/GID1_vs_GID2.txt.xz
 410368087d60547a9be1b23a648094c8 *inst/extdata/GID1_vs_GID3.txt.xz
@@ -84,4 +84,6 @@ ccc9ff3da9e25fda43e78497140ecb68 *man/panpca.Rd
 40350bdc296ba7f2d2b377dd004d6c16 *man/readHmmer.Rd
 c89440408d05ab1f24e2ceedd0c61bf2 *man/scores.loadings.Rd
 eb1f75cff1e3049d749490d2817c7400 *man/xz.Rd
+45fa163c3770b619b39adc03b04d647d *vignettes/vignette-concordance.tex
 d7a0da32f316e05c0c5b3ad0e082c26e *vignettes/vignette.Rnw
+5969a16439f3f6dab8c872023acfa4b8 *vignettes/vignette.tex
