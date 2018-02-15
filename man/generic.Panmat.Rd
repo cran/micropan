@@ -19,9 +19,9 @@
 
 \item{ylab}{The label of the Y axis.}
 
-\item{object}{A \code{Panmat} object, see below.}
-
 \item{\dots}{Optional (graphical) arguments.}
+
+\item{object}{A \code{Panmat} object, see below.}
 }
 \description{
 Generic functions for plotting and printing the content of a \code{Panmat} object.
@@ -44,10 +44,9 @@ The \code{\link{summary.Panmat}} function will display a text giving the same in
 # See examples in the Help-file for panMatrix.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{panMatrix}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

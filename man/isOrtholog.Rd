@@ -42,19 +42,16 @@ tight and homogenous (and many) clusters, almost all sequences will be orthologs
 \examples{
 \dontrun{
 # Loading distance data in the micropan package
-data(list=c("Mpneumoniae.blast.distances","Mpneumoniae.blast.clustering"),
-package="micropan")
+data(list=c("Mpneumoniae.blast.distances","Mpneumoniae.blast.clustering"),package="micropan")
 
 # Finding orthologs
-is.ortholog <- isOrtholog(Mpneumoniae.blast.clustering,
-Mpneumoniae.blast.distances)
+is.ortholog <- isOrtholog(Mpneumoniae.blast.clustering,Mpneumoniae.blast.distances)
 }
 
-}
-\author{
-Lars Snipen and Kristian Hovde Liland.
 }
 \seealso{
 \code{\link{bDist}}, \code{\link{bClust}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

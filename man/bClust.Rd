@@ -69,10 +69,9 @@ clustering.blast.single <- bClust(Mpneumoniae.blast.distances)
 clustering.blast.complete <- bClust(Mpneumoniae.blast.distances,linkage="complete",threshold=0.75)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{bDist}}, \code{\link{hclust}}, \code{\link{dClust}}, \code{\link{isOrtholog}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

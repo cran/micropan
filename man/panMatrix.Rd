@@ -53,12 +53,11 @@ plot(panmat.blast)
 summary(panmat.blast)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{bClust}}, \code{\link{dClust}}, \code{\link{distManhattan}},
 \code{\link{distJaccard}}, \code{\link{fluidity}}, \code{\link{chao}},
 \code{\link{binomixEstimate}}, \code{\link{heaps}}, \code{\link{rarefaction}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

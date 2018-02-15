@@ -21,9 +21,9 @@
 
 \item{ylab}{Text for vertical axis.}
 
-\item{object}{A \code{Rarefac} object, see below.}
-
 \item{\dots}{Optional graphical arguments.}
+
+\item{object}{A \code{Rarefac} object, see below.}
 }
 \description{
 Generic functions for \code{Rarefac} object.
@@ -45,10 +45,9 @@ The \code{\link{summary.Rarefac}} function will display a text giving the same i
 # See examples in the Help-file for rarefaction.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{rarefaction}}, \code{\link{heaps}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

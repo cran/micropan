@@ -25,9 +25,9 @@
 
 \item{show.boot}{Logical to turn off plotting of bootstrap values.}
 
-\item{object}{A \code{Pantree} object, see below.}
-
 \item{\dots}{Additional arguments, see below.}
+
+\item{object}{A \code{Pantree} object, see below.}
 }
 \description{
 Generic functions for \code{Pantree} objects.
@@ -68,10 +68,9 @@ always displayed horizontal, to align the labels in the right margin for easy re
 # See examples in the Help-file for panTree.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{panTree}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

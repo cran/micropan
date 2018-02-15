@@ -41,10 +41,9 @@ Jdist.blast <- distJaccard(Mpneumoniae.blast.panmat)
 Jdist.domains <- distJaccard(Mpneumoniae.domain.panmat) 
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{panMatrix}}, \code{\link{fluidity}}, \code{\link{dist}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

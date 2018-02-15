@@ -42,13 +42,21 @@ times.
 }
 \examples{
 # Accession numbers for the chromosome and plasmid of Buchnera aphidicola, strain APS
-entrezDownload( accession="BA000003.2,AP001071.1", out.file="Buchnera_aphidicola_APS.fsa" )
+acc <- "BA000003.2,AP001071.1"
+tf <- tempfile(pattern="Buchnera_aphidicola",fileext=".fasta")
+txt <- entrezDownload(acc,out.file=tf)
 
-}
-\author{
-Lars Snipen and Kristian Liland.
+# Reading file to inspect
+genome <- readFasta(tf)
+summary(genome)
+
+# ...cleaning...
+s <- file.remove(tf)
+
 }
 \seealso{
 \code{\link{getAccessions}}, \code{\link[microseq]{readFasta}}.
 }
-
+\author{
+Lars Snipen and Kristian Liland.
+}

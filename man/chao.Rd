@@ -37,9 +37,6 @@ data(list="Mpneumoniae.blast.panmat",package="micropan")
 chao.pansize <- chao(Mpneumoniae.blast.panmat)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Chao, A. (1987). Estimating the population size for capture-recapture data with unequal
 catchability. Biometrics, 43:783-791.
@@ -47,4 +44,6 @@ catchability. Biometrics, 43:783-791.
 \seealso{
 \code{\link{panMatrix}}, \code{\link{binomixEstimate}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

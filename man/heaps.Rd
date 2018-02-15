@@ -48,9 +48,6 @@ if(h.est[2]>1){
 }
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Tettelin, H., Riley, D., Cattuto, C., Medini, D. (2008). Comparative genomics: the
 bacterial pan-genome. Current Opinions in Microbiology, 12:472-477.
@@ -58,4 +55,6 @@ bacterial pan-genome. Current Opinions in Microbiology, 12:472-477.
 \seealso{
 \code{\link{binomixEstimate}}, \code{\link{chao}}, \code{\link{rarefaction}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

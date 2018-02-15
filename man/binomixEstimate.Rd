@@ -96,9 +96,6 @@ plot(bino,ncomp=8)  # clearly overfitted, we do not need this many sectors
 plot(bino,type="single")  # completely dominated by core genes
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Hogg, J.S., Hu, F.Z, Janto, B., Boissy, R., Hayes, J., Keefe, R., Post, J.C., Ehrlich, G.D. (2007).
 Characterization and modeling of the Haemophilus influenzae core- and supra-genomes based on the
@@ -116,4 +113,6 @@ Schwarz, G. (1978). Estimating the Dimension of a Model. The Annals of Statistic
 \code{\link{panMatrix}}, \code{\link{chao}}, \code{\link{plot.Binomix}},
 \code{\link{summary.Binomix}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

@@ -40,24 +40,30 @@
 #' 
 #' @examples
 #' # Using BLAST result files in this package...
-#' # We need to uncompress them first:
-#' extdata.path <- file.path(path.package("micropan"),"extdata")
-#' filenames <- c("GID1_vs_GID1.txt",
-#' "GID1_vs_GID2.txt",
-#' "GID1_vs_GID3.txt",
-#' "GID2_vs_GID1.txt",
-#' "GID2_vs_GID2.txt",
-#' "GID2_vs_GID3.txt",
-#' "GID3_vs_GID1.txt",
-#' "GID3_vs_GID2.txt",
-#' "GID3_vs_GID3.txt")
-#' pth <- lapply( file.path( extdata.path, paste( filenames, ".xz", sep="" ) ), xzuncompress )
+#' prefix <- c("GID1_vs_GID1.txt",
+#'             "GID1_vs_GID2.txt",
+#'             "GID1_vs_GID3.txt",
+#'             "GID2_vs_GID1.txt",
+#'             "GID2_vs_GID2.txt",
+#'             "GID2_vs_GID3.txt",
+#'             "GID3_vs_GID1.txt",
+#'             "GID3_vs_GID2.txt",
+#'             "GID3_vs_GID3.txt")
+#' xpth <- file.path(path.package("micropan"),"extdata")
+#' blast.files <- file.path(xpth,paste(prefix,".xz",sep=""))
 #' 
-#' # ...using \code{bDist} to find distances...
-#' blast.distances <- bDist(file.path(extdata.path,filenames))
+#' # We need to uncompress them first...
+#' tf <- tempfile(pattern=prefix,fileext=".xz")
+#' s <- file.copy(blast.files,tf)
+#' tf <- unlist(lapply(tf,xzuncompress))
 #' 
-#' # ...and compressing the BLAST result files again...
-#' pth <- lapply( file.path( extdata.path, filenames ), xzcompress )
+#' # Computing pairwise distances
+#' blast.distances <- bDist(tf)
+#' 
+#' # ...and cleaning...
+#' s <- file.remove(tf)
+#' 
+#' # See also example for blastAllAll
 #' 
 #' @importFrom microseq gregexpr
 #' 

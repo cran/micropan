@@ -35,9 +35,19 @@
 #' 
 #' @examples 
 #' # Accession numbers for the chromosome and plasmid of Buchnera aphidicola, strain APS
-#' entrezDownload( accession="BA000003.2,AP001071.1", out.file="Buchnera_aphidicola_APS.fsa" )
+#' acc <- "BA000003.2,AP001071.1"
+#' tf <- tempfile(pattern="Buchnera_aphidicola",fileext=".fasta")
+#' txt <- entrezDownload(acc,out.file=tf)
 #' 
-#' @export
+#' # Reading file to inspect
+#' genome <- readFasta(tf)
+#' summary(genome)
+#' 
+#' # ...cleaning...
+#' s <- file.remove(tf)
+#' 
+#' @export entrezDownload
+#' 
 entrezDownload <- function( accession, out.file, verbose=TRUE ){
   if( verbose ) cat( "Downloading genome..." )
   connect <- file( out.file, open="w" )
@@ -83,12 +93,21 @@ entrezDownload <- function( accession, out.file, verbose=TRUE ){
 #' @examples 
 #' # The master record accession for the WGS genome Mycoplasma genitalium, strain G37
 #' acc <- getAccessions("AAGX00000000")
-#' # Then we use this to download all contigs and save them in the same fasta file
-#' entrezDownload( acc, out.file="Mycoplasma_genitalium_G37.fsa" )
+#' # Then we use this to download all contigs and save them
+#' tf <- tempfile(fileext=".fasta")
+#' txt <- entrezDownload(acc,out.file=tf)
+#' 
+#' # Reading the file to inspect it
+#' genome <- readFasta(tf)
+#' summary(genome)
+#' 
+#' # ...cleaning...
+#' s <- file.remove(tf)
 #' 
 #' @importFrom microseq gregexpr
 #' 
-#' @export
+#' @export getAccessions
+#' 
 getAccessions <- function( master.record.accession ){
   adrId    <- paste( "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nuccore&term=", master.record.accession, sep="" )
   idSearch <- url( adrId, open="rt" )
@@ -96,6 +115,7 @@ getAccessions <- function( master.record.accession ){
     idDoc  <- readLines( idSearch )
     idLine <- which(regexpr("<Id>+",idDoc)==1)[1]
     id     <- substr(idDoc[idLine], 5, nchar(idDoc[idLine])-5)
+    close( idSearch )
   } else {
     cat( "Download failed: Could not open connection\n" )
     return(NULL)

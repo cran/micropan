@@ -2,14 +2,14 @@
 % Please edit documentation in R/mpneumoniae.R
 \docType{data}
 \name{mpneumoniae}
+\alias{mpneumoniae}
 \alias{Mpneumoniae}
-\alias{Mpneumoniae.blast.clustering}
+\alias{Mpneumoniae.table}
 \alias{Mpneumoniae.blast.distances}
+\alias{Mpneumoniae.blast.clustering}
 \alias{Mpneumoniae.blast.panmat}
 \alias{Mpneumoniae.domain.clustering}
 \alias{Mpneumoniae.domain.panmat}
-\alias{Mpneumoniae.table}
-\alias{mpneumoniae}
 \title{Data sets for the \emph{Mycoplasma pneumoniae} casestudy}
 \usage{
 data(Mpneumoniae.table)
@@ -63,7 +63,7 @@ if(interactive()){
 
 # BLAST clustering vector
 data(Mpneumoniae.blast.clustering) #loads the Mpneumoniae.blast.clustering
-Mpneumoniae.blast.clustering[1:30]
+print(Mpneumoniae.blast.clustering[1:30])
 
 # BLAST pan-matrix
 data(Mpneumoniae.blast.panmat) #loads the Mpneumoniae.blast.panmat
@@ -71,7 +71,7 @@ summary(Mpneumoniae.blast.panmat)
 
 # Domain sequence clustering vector
 data(Mpneumoniae.domain.clustering) #loads the Mpneumoniae.domain.clustering
-Mpneumoniae.domain.clustering[1:30]
+print(Mpneumoniae.domain.clustering[1:30])
 
 # Domain sequence pan-matrix
 data(Mpneumoniae.domain.panmat) #loads the Mpneumoniae.domain.panmat
@@ -81,4 +81,3 @@ summary(Mpneumoniae.domain.panmat)
 \author{
 Lars Snipen and Kristian Hovde Liland.
 }
-

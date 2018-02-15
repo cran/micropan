@@ -44,9 +44,6 @@ fluid.blast <- fluidity(Mpneumoniae.blast.panmat)
 fluid.domains <- fluidity(Mpneumoniae.domain.panmat)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Kislyuk, A.O., Haegeman, B., Bergman, N.H., Weitz, J.S. (2011). Genomic fluidity:
 an integrative view of gene diversity within microbial populations. BMC Genomics, 12:32.
@@ -54,4 +51,6 @@ an integrative view of gene diversity within microbial populations. BMC Genomics
 \seealso{
 \code{\link{panMatrix}}, \code{\link{distJaccard}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

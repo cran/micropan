@@ -28,14 +28,21 @@ return them in the apropriate way to be used by \code{\link{entrezDownload}}.
 \examples{
 # The master record accession for the WGS genome Mycoplasma genitalium, strain G37
 acc <- getAccessions("AAGX00000000")
-# Then we use this to download all contigs and save them in the same fasta file
-entrezDownload( acc, out.file="Mycoplasma_genitalium_G37.fsa" )
+# Then we use this to download all contigs and save them
+tf <- tempfile(fileext=".fasta")
+txt <- entrezDownload(acc,out.file=tf)
 
-}
-\author{
-Lars Snipen and Kristian Liland.
+# Reading the file to inspect it
+genome <- readFasta(tf)
+summary(genome)
+
+# ...cleaning...
+s <- file.remove(tf)
+
 }
 \seealso{
 \code{\link{entrezDownload}}.
 }
-
+\author{
+Lars Snipen and Kristian Liland.
+}

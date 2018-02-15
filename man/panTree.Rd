@@ -70,9 +70,6 @@ names(cols) <- Mpneumoniae.table$GID.tag
 plot(my.tree, leaf.lab=labels, col=cols,cex=0.8, xlab="Shell-weighted Manhattan distances")
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Snipen, L., Ussery, D.W. (2010). Standard operating procedure for computing pangenome
 trees. Standards in Genomic Sciences, 2:135-141.
@@ -81,4 +78,6 @@ trees. Standards in Genomic Sciences, 2:135-141.
 \code{\link{panMatrix}}, \code{\link{distManhattan}}, \code{\link{distJaccard}},
 \code{\link{plot.Pantree}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

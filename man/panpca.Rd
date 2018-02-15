@@ -86,11 +86,10 @@ summary(ppca.domains)
 plotLoadings(ppca.domains)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{plotScores}}, \code{\link{plotLoadings}}, \code{\link{panTree}},
 \code{\link{distManhattan}}, \code{\link{geneWeights}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

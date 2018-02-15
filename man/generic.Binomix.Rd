@@ -25,9 +25,9 @@ by specifying the number of components here, e.g. \samp{ncomp=5} will always dis
 
 \item{show.bar}{Logical indicating if a colorbar should be displayed next to the pie.}
 
-\item{object}{A \code{Binomix} object, see below.}
-
 \item{\dots}{Optional graphical arguments.}
+
+\item{object}{A \code{Binomix} object, see below.}
 }
 \description{
 Generic functions for \code{Binomix} objects.
@@ -53,10 +53,9 @@ the optimal component model.
 # See examples in the Help-file for binomixEstimate.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{binomixEstimate}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

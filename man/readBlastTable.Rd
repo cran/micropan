@@ -23,22 +23,24 @@ each BLAST search. The function \code{\link{blastAllAll}} produces such files.
 }
 \examples{
 # Using a BLAST result file in this package
+xpth <- file.path(path.package("micropan"),"extdata")
+blast.file <- file.path( xpth, "GID1_vs_GID2.txt.xz" )
+
 # We need to uncompress it first...
-extdata.path <- file.path(path.package("micropan"),"extdata")
-filenames <- "GID1_vs_GID2.txt"
-pth <- lapply( file.path( extdata.path, paste( filenames, ".xz", sep="" ) ), xzuncompress )
+tf <- tempfile(fileext=".xz")
+s <- file.copy(blast.file,tf)
+tf <- xzuncompress(tf)
 
 #...then we can read it...
-blast.table <- readBlastTable(file.path(extdata.path,filenames))
+blast.table <- readBlastTable(tf)
 
-# ...and compressing it again...
-pth <- lapply( file.path( extdata.path, filenames ), xzcompress )
+# ...and deleting temporary file
+s <- file.remove(tf)
 
-}
-\author{
-Lars Snipen and Kristian Hovde Liland.
 }
 \seealso{
 \code{\link{blastAllAll}}, \code{\link{bDist}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

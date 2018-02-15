@@ -17,9 +17,9 @@ per component or cumulative.}
 
 \item{col}{Color, default is \samp{"black"}, of interior and border of bars in the barplot.}
 
-\item{object}{A \code{Panpca} object, see below.}
-
 \item{\dots}{Optional graphical arguments.}
+
+\item{object}{A \code{Panpca} object, see below.}
 }
 \description{
 Generic functions for \code{Panpca} objects.
@@ -54,10 +54,9 @@ The \code{\link{summary.Panpca}} function will print the same information as plo
 # See examples in the Help-file for panpca.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{panpca}}, \code{\link{plotScores}}, \code{\link{plotLoadings}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

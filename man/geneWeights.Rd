@@ -40,9 +40,6 @@ w <- geneWeights(Mpneumoniae.blast.panmat,type="shell")
 Mdist.blast <- distManhattan(Mpneumoniae.blast.panmat,weights=w)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \references{
 Snipen, L., Ussery, D.W. (2010). Standard operating procedure for computing pangenome
 trees. Standards in Genomic Sciences, 2:135-141.
@@ -50,4 +47,6 @@ trees. Standards in Genomic Sciences, 2:135-141.
 \seealso{
 \code{\link{panMatrix}}, \code{\link{distManhattan}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

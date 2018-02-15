@@ -28,10 +28,9 @@ The input is a \code{data.frame} of the type produced by \code{\link{readHmmer}}
 # See the example in the Help-file for dClust.
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{hmmerScan}}, \code{\link{readHmmer}}, \code{\link{dClust}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

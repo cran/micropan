@@ -1,14 +1,12 @@
-#' @name prodigalPredict
+#' @name prodigal
 #' @title Gene predictions using Prodigal
 #' 
-#' @description Finds coding genes in a genome, using the Prodigal software, and outputs them as a FASTA file.
+#' @description Finds coding genes in a genome using the Prodigal software.
 #' 
 #' @param genome.file Name of a FASTA formatted file with all the DNA sequences for a genome (chromosomes,
 #' plasmids, contigs etc.).
-#' @param prot.file Name of output file. Predicted protein sequences will be written to this file, in a
-#' FASTA format.
-#' @param nuc.file If specified, nucleotide version of each protein is written to this file (default
-#' \code{NULL}).
+#' @param prot.file If specified, amino acid sequence of each protein is written to this FASTA file.
+#' @param nuc.file If specified, nucleotide sequence of each protein is written to this FASTA file.
 #' @param closed.ends Logical, if \code{TRUE} genes are not allowed to run off edges (default \code{TRUE}).
 #' @param motif.scan Logical, if \code{TRUE} forces motif scan instead of Shine-Dalgarno trainer (default 
 #' \code{FALSE}).
@@ -18,50 +16,63 @@
 #' tests among the automated gene finders. The options used as default here are believed to be the best for
 #' pan-genomic analyses.
 #' 
-#' @return The call to Prodigal produces a FASTA formatted file with predicted protein sequences, and
-#' if \samp{nuc.file} is specified, a similar file with nucleotide sequences. See \code{\link[microseq]{readFasta}}
-#' for how to read such files into R.
+#' @return A \code{gff.table} with the metadata for all predicted genes (see \code{\link{readGFF}}). If
+#' \code{prot.file} is specified, a FASTA formatted file with predicted protein sequences are also produced. If
+#' \code{nuc.file} is specified, a similar file with nucleotide sequences is also produced.
 #' 
-#' @references Hyatt, D., Chen, G., LoCascio, P.F., Land, M.L., Larimer, F.W., Hauser, L.J. (2009).
+#' @references Hyatt, D., Chen, G., LoCascio, P.F., Land, M.L., Larimer, F.W., Hauser, L.J. (2010).
 #' Prodigal: prokaryotic gene recognition and translation initiation site identification, BMC Bioinformatics,
 #' 11:119.
 #' 
 #' @note The Prodigal software must be installed on the system for this function to work, i.e. the command 
-#' \samp{system("prodigal")} (no version numbers!) must be recognized as a valid command if you run it 
+#' \samp{system("prodigal -h")} (no version numbers!) must be recognized as a valid command if you run it 
 #' in the Console window.
 #' 
 #' @author Lars Snipen and Kristian Hovde Liland.
 #' 
-#' @seealso \code{\link{entrezDownload}}.
+#' @seealso \code{\link{readGFF}}.
 #' 
 #' @examples 
 #' \dontrun{
-#' # Using a small genome file in this package
+#' # This example requires the external Prodigal software
+#' # Using a genome file in this package
+#' xpth <- file.path(path.package("micropan"),"extdata")
+#' genome.file <- file.path(xpth,"Example_genome.fasta.xz")
+#' 
 #' # We need to uncompress it first...
-#' extdata.path <- file.path(path.package("micropan"),"extdata")
-#' filenames <- "Mpneumoniae_309_genome.fsa"
-#' pth <- lapply( file.path( extdata.path, paste( filenames, ".xz", sep="" ) ), xzuncompress )
+#' tf <- tempfile(fileext=".xz")
+#' s <- file.copy(genome.file,tf)
+#' tf <- xzuncompress(tf)
+#'
+#' # Calling Prodigal, and writing all predicted proteins to a file as well
+#' prot.file <- tempfile(fileext=".fasta")
+#' gff.table <- prodigal(tf,prot.file)
 #' 
-#' # Calling Prodigal, and using a similar name (_genome replaced by _protein) in output
-#' prodigalPredict( file.path(extdata.path,filenames), gsub("_genome","_protein",filenames) )
+#' # Reading protein file as well
+#' proteins <- readFasta(prot.file)
 #' 
-#' # ...and compressing the genome-file again...
-#' pth <- lapply( file.path( extdata.path, filenames ), xzcompress )
+#' # ...and cleaning...
+#' s <- file.remove(tf,prot.file)
 #' }
 #' 
-#' @export
-prodigalPredict <- function( genome.file, prot.file, nuc.file=NULL, closed.ends=TRUE, motif.scan=FALSE ){
-  command <- paste( "prodigal -i ", genome.file, " -a ", prot.file, " -o prodigal.txt -q", sep="" )
+#' @export prodigal
+#' 
+prodigal <- function( genome.file, prot.file=NULL, nuc.file=NULL, closed.ends=TRUE, motif.scan=FALSE ){
+  cmd <- paste( "prodigal -i ", genome.file, " -f gff -o prodigal.gff -q", sep="" )
+  if( !is.null( prot.file ) ){
+    cmd <- paste( cmd, " -a ", prot.file, sep="" )
+  }
   if( !is.null( nuc.file ) ){
-    command <- paste( command, " -d ", nuc.file, sep="" )
+    cmd <- paste( cmd, " -d ", nuc.file, sep="" )
   }
   if( closed.ends ){
-    command <- paste( command, " -c ", sep="" )
+    cmd <- paste( cmd, " -c ", sep="" )
   }
   if( motif.scan ){
-    command <- paste( command, " -n ", sep="" )
+    cmd <- paste( cmd, " -n ", sep="" )
   }
-  system( command )
-  file.remove( "prodigal.txt" )
-  return( paste( "Prodigal predictions in", prot.file ) )
+  system( cmd )
+  gff.table <- readGFF( "prodigal.gff" )
+  file.remove( "prodigal.gff" )
+  return(gff.table)
 }

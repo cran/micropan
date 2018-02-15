@@ -34,13 +34,12 @@ The function reads a text file produced by \code{\link{hmmerScan}}. By specifyin
 should be turned off (FALSE) if you scan against your own database where accession numbers are lacking.
 }
 \examples{
-# See the example in the Help-file for dClust
+# See the examples in the Help-files for dClust and hmmerScan.
 
-}
-\author{
-Lars Snipen and Kristian Hovde Liland.
 }
 \seealso{
 \code{\link{hmmerScan}}, \code{\link{hmmerCleanOverlap}}, \code{\link{dClust}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

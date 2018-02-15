@@ -51,35 +51,41 @@ sessions can write results to the same folder.
 }
 \note{
 The HMMER3 software must be installed on the system for this function to work, i.e. the command
-\samp{system("hmmscan")} must be recognized as a valid command if you run it in the Console window.
+\samp{system("hmmscan -h")} must be recognized as a valid command if you run it in the Console window.
 }
 \examples{
 \dontrun{
-# Using a FASTA file in the micropan package
-# We need to uncompress it first...
-extdata.path <- file.path(path.package("micropan"),"extdata")
-filenames <- "Mpneumoniae_309_GID2.fsa"
-pth <- lapply( file.path( extdata.path, paste( filenames, ".xz", sep="" ) ), xzuncompress )
+# This example requires the external HMMER software
+# Using two files in the micropan package
+xpth <- file.path(path.package("micropan"),"extdata")
+prot.file <- file.path(xpth,"Example_proteins_GID1.fasta.xz")
+db <- "microfam.hmm"
+db.files <- file.path(xpth,paste(db,c(".h3f.xz",".h3i.xz",".h3m.xz",".h3p.xz"),sep=""))
 
-# Using a miniature pHMM database in the micropan package
-# We need to uncompress its datafiles first...
-db <- "microfam0.hmm"
-pth <- lapply( file.path( extdata.path,
-   paste( db, c(".h3f.xz",".h3i.xz",".h3m.xz",".h3p.xz"), sep="" ) ), xzuncompress )
-  
-# ...and scanning the FASTA-file against microfam0...
-hmmerScan(in.files=file.path(extdata.path,filenames), 
-   db=file.path(extdata.path,db),out.folder=".")
-  
-# ...and compressing all files again...
-pth <- lapply( file.path( extdata.path, filenames ), xzcompress )
-pth <- lapply( file.path( extdata.path,
-   paste( db, c(".h3f",".h3i",".h3m",".h3p"), sep="" ) ), xzcompress )
+# We need to uncompress them first...
+prot.tf <- tempfile(pattern="GID1.fasta",fileext=".xz")
+s <- file.copy(prot.file,prot.tf)
+prot.tf <- xzuncompress(prot.tf)
+db.tf <- paste(tempfile(),c(".h3f.xz",".h3i.xz",".h3m.xz",".h3p.xz"),sep="")
+s <- file.copy(db.files,db.tf)
+db.tf <- unlist(lapply(db.tf,xzuncompress))
+db.name <- gsub("\\\\",.Platform$file.sep,sub(".h3f$","",db.tf[1]),fixed=T)
+
+# Scanning the FASTA-file against microfam0...
+tmp.dir <- tempdir()
+hmmerScan(in.files=prot.tf,db=db.name,out.folder=tmp.dir)
+
+# Reading results
+db.nm <- rev(unlist(strsplit(db.name,split=.Platform$file.sep)))[1]
+hmm.file <- file.path(tmp.dir,paste("GID1_vs_",db.nm,".txt",sep=""))
+hmm.tab <- readHmmer(hmm.file)
+
+# ...and cleaning...
+s <- file.remove(prot.tf)
+s <- file.remove(sub(".xz","",db.tf))
+s <- file.remove(hmm.file)
 }
 
-}
-\author{
-Lars Snipen and Kristian Hovde Liland.
 }
 \references{
 Eddy, S.R. (2008). A Probabilistic Model of Local Sequence Alignment That Simplifies
@@ -88,4 +94,6 @@ Statistical Significance Estimation. PLoS Computational Biology, 4(5).
 \seealso{
 \code{\link{panPrep}}, \code{\link{readHmmer}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

@@ -58,11 +58,10 @@ Mdist.blast <- distManhattan(Mpneumoniae.blast.panmat)
 Mdist.domains <- distManhattan(Mpneumoniae.domain.panmat,scale=0.5)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{panMatrix}}, \code{\link{distJaccard}}, \code{\link{geneWeights}},
 \code{\link{panTree}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

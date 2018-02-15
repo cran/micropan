@@ -45,11 +45,10 @@ rarefac.domains <- rarefaction(Mpneumoniae.domain.panmat,n.perm=1000)
 summary(rarefac.domains)
 
 }
-\author{
-Lars Snipen and Kristian Hovde Liland.
-}
 \seealso{
 \code{\link{heaps}}, \code{\link{panMatrix}}, \code{\link{plot.Rarefac}},
 \code{\link{summary.Rarefac}}.
 }
-
+\author{
+Lars Snipen and Kristian Hovde Liland.
+}

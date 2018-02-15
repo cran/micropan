@@ -22,15 +22,20 @@
 #' @author Kristian Hovde Liland.
 #' 
 #' @examples
-#' cat(file="foo.txt", "Hello world!")
-#' xzcompress("foo.txt")
-#' file.remove("foo.txt")
-#' print(file.info("foo.txt.xz"))
-#' xzuncompress("foo.txt.xz")
-#' print(file.info("foo.txt"))
-#' file.remove("foo.txt")
+#' # Creating small file
+#' tf <- tempfile()
+#' cat(file=tf, "Hello world!")
 #' 
-#' @export
+#' # Compressing
+#' tf.xz <- xzcompress(tf)
+#' print(file.info(tf.xz))
+#' 
+#' # Uncompressing
+#' tf <- xzuncompress(tf.xz)
+#' print(file.info(tf))
+#' file.remove(tf)
+#' 
+#' @export xzcompress
 xzcompress <- function (filename, destname = sprintf("%s.xz", filename), temporary = FALSE, 
           skip = FALSE, overwrite = FALSE, remove = TRUE, BFR.SIZE = 1e+07, compression = 6,
           ...) 
