@@ -16,7 +16,7 @@ Nucleotide database.}
 the download progress.}
 }
 \value{
-The name of the resulting FASTA file is returned (same as \code{file}), but the real result of
+The name of the resulting FASTA file is returned (same as \code{out.file}), but the real result of
 this function is the creation of the file itself.
 }
 \description{
@@ -33,25 +33,22 @@ all accession numbers related to a genome (chromosomes, plasmids, contigs, etc).
 where the number of sequences is low, \samp{accession} is typically a single text listing all accession
 numbers separated by commas. In the case of some draft genomes having a large number of contigs, the
 accession numbers must be split into several comma-separated texts. The reason for this is that Entrez
-will not accept too many queries in one chunk (less than 500). 
+will not accept too many queries in one chunk. 
 
-The downloaded sequences are saved in \samp{file} on your system. This will be a FASTA formatted file,
-and should by convention have the filename extension \samp{.fsa}. Note that all downloaded sequences end
-up in this file. If you want to download multiple genomes, you call \code{\link{entrezDownload}} multiple
-times.
+The downloaded sequences are saved in \samp{out.file} on your system. This will be a FASTA formatted file.
+Note that all downloaded sequences end up in this file. If you want to download multiple genomes,
+you call \code{\link{entrezDownload}} multiple times and store in multiple files.
 }
 \examples{
+\dontrun{
 # Accession numbers for the chromosome and plasmid of Buchnera aphidicola, strain APS
 acc <- "BA000003.2,AP001071.1"
-tf <- tempfile(pattern="Buchnera_aphidicola",fileext=".fasta")
-txt <- entrezDownload(acc,out.file=tf)
-
-# Reading file to inspect
-genome <- readFasta(tf)
-summary(genome)
+genome.file <- tempfile(pattern = "Buchnera_aphidicola", fileext = ".fna")
+txt <- entrezDownload(acc, out.file = genome.file)
 
 # ...cleaning...
-s <- file.remove(tf)
+ok <- file.remove(genome.file)
+}
 
 }
 \seealso{
