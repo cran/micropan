@@ -1,8 +1,8 @@
-43834c5679f4aa08e09657f8ff0938af *DESCRIPTION
-480121935134ca405b85a8ff451cd100 *NAMESPACE
+66ddcfcdc2883a5fe70cef3d6138e9d2 *DESCRIPTION
+7e6ff60b0230669e44c0eb73b02aec37 *NAMESPACE
 ac1cd9cea466fcc2e7165b368c454e68 *R/bclust.R
 ff958c08f01f21fcde4f0a2f818029b7 *R/bdist.R
-134d4652202baaa7f2e81e8624ad6663 *R/binomix.R
+e1427b644f582c02c456ceed6c1385f7 *R/binomix.R
 d370e236ca2f0d22a643e4637ebbe488 *R/blasting.R
 980b959a8f130e545883819bbfce4db0 *R/domainclust.R
 02d9a9a48da12b482943de9fc726c633 *R/entrez.R
@@ -17,7 +17,7 @@ fb5ce8d2357cd34dc87e4230e1c8a4df *R/powerlaw.R
 f8fd269719c1f93ba2cb6061605a614b *R/rarefaction.R
 b53a4f2643e913e33291c5a1340bdeab *R/xmpl.R
 5c4833d583e52887623ecb16ce3d9242 *R/xz.R
-4dfc0a29313d3229755bd68d6c01ac3a *build/vignette.rds
+d815205d94241331d65346681c0550f4 *build/vignette.rds
 48d9355777331c00fb31f1123ae718c0 *data/xmpl.bclst.rda
 0be31fcd9424fa4de634fd8a94d831c8 *data/xmpl.bdist.rda
 60d13953df0c300e586b01b46a707b67 *data/xmpl.panmat.rda
@@ -25,7 +25,7 @@ ef5297bc2b6bd88bf4a4bb08b87a5789 *demo/00Index
 458b872866b7ece001e3f41115e3f4e0 *demo/casestudy.R
 39a9234f67febd91a93fcaa9c154d033 *inst/doc/vignette.R
 b9355b7e5d339d7ce88ac4d9717ecdac *inst/doc/vignette.Rnw
-5b662c5d202a5780331e91264cbfd6b5 *inst/doc/vignette.pdf
+fc4f7cb75a2b6fac07cddc815814e32c *inst/doc/vignette.pdf
 07efc2f06ce60193d1c0dab697f9f8ed *inst/extdata/GID1_vs_GID1_.txt.xz
 689ff719ca551d9e0890b1d283259842 *inst/extdata/GID1_vs_microfam.hmm.txt.xz
 73661c784db9c43a1ac93a2d73fad6ab *inst/extdata/GID2_vs_GID1_.txt.xz
